@@ -4,7 +4,7 @@ include ArticlesHelper
   def index
     @articles = Article.all
   end
-
+  before_filter :require_login, only: [:new, :create, :edit, :update, :destroy]
   def show
 
     @article = Article.find(params[:id])
